@@ -5,7 +5,12 @@
 }
 
 a:any-link{
+    text-decoration: none;
     cursor:pointer;
+}
+
+a{
+    cursor: pointer;
 }
 
 body{
@@ -29,6 +34,7 @@ body{
     float: left;
 }
 
+
 .main-logo{
     display: block;
     width: 156px;
@@ -42,6 +48,10 @@ body{
 ul{
     list-style-type: none;
 }
+ a:any-link{
+     cursor: pointer;
+ }
+
 
 .menu{
     margin: 0 0 0 15px;
@@ -60,16 +70,13 @@ ul{
     float: left;
     color: #b6b899;
     font-size: 0.85em;
+    text-decoration: none;
     padding: 0 4px;
     width: 110px;
     line-height: 59px;
     text-align: center;
     border-left: 1px solid #062d1f;
     border-right: 1px solid #225643;
-}
-
-.no-underline{
-    text-decoration: none;
 }
 
 .menu li a:hover{
@@ -124,6 +131,7 @@ ul{
     width: 120.2px;
     float: right;
     margin-top:16px;
+
 }
 
 .log-in-button{
@@ -138,6 +146,7 @@ ul{
     line-height: 1.65em;
     font-weight: bold;
     text-shadow: 0 1px 0.1em #b6b899;
+
 }
 
 .log-in a{
@@ -217,6 +226,7 @@ ul{
     margin-bottom: 15px;
 }
 
+
 .checkbox{
     float:left;
     font-size: 13px;
@@ -248,10 +258,12 @@ ul{
 
 }
 
+
 .container-more{
     float:right;
     width: 100px;
 }
+
 
 .button-more{
     width: 91px;
@@ -297,6 +309,7 @@ ul{
 
 .container-more-retrieved{
     float:right;
+
 }
 
 .container-3{
@@ -321,6 +334,11 @@ ul{
     font-size: 12px;
 }
 
+.tools{
+    margin-right: 293px;
+    float: right;
+}
+
 .print, .email, .pdf{
     float: left;
     width: 22px;
@@ -330,41 +348,60 @@ ul{
     display: inline-block;
 }
 
-[data-title]:hover:after {
-    opacity: 0.7;
-    transition: all 0.5s ease-out;
-    visibility: visible;
+/*TOOLTIP*/
+
+[data-title] {
+    position: relative;
 }
 
 [data-title]:after {
     content: attr(data-title);
     background-color: black;
     color: white;
-    position: absolute;
+    border-radius: 0.5em;
     font: normal 10pt Arial,Helvetica,sans-serif;
     font-size: 12px;
     padding: 4px 8px;
-    top: 120%;
-    right:auto;
-    left:auto;
-    z-index:999;
-    opacity:0.7;
+    white-space: nowrap;
+
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index:1;
+
     visibility: hidden;
-    border-radius: 0.5em;
+    opacity: 0;
+    transition: all 0.5s ease-out;
 }
 
-[data-title] {
-    position: relative;
+[data-title]:hover:after {
+    opacity: 0.7;
+    visibility: visible;
 }
 
-.tooltip [data-title]{
-    bottom: 500%;
+[data-title]:before{
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid black;
+    border-color: transparent transparent black transparent;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-out;
 }
 
-.tools{
-    margin-right: 293px;
-    float: right;
+[data-title]:hover:before{
+    opacity: 0.7;
+    visibility: visible;
 }
+
+
+
+
 
 .content-container{
     width: 1140px;
@@ -387,7 +424,7 @@ ul{
     padding: 5px 0;
     align-items: center;
     height: 35px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .heading-container{
@@ -455,26 +492,15 @@ ul{
     margin-bottom: 10px;
     font-size: 12px;
 }
-
 .company-card-container{
-    display: flex;
-    justify-content: flex-start;
+    float: left;
+    clear: both;
     width: 847.5px;
     height: 158px;
 }
 
-.company-card-container-left{
-    width: 50%;
-}
-
-.company-card-container-right{
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
 .extended-analysis{
+    float: right;
     background-color: #0d513a;
     color: white;
     font-size: 12px;
@@ -487,15 +513,11 @@ ul{
 
 }
 
-/*COMPANY CARD*/
-
 .company-card{
     width: 331.6px;
     height: 151.6px;
     border: 1px solid black;
     font-size: 12px;
-    font-weight: 400;
-    font-family: Tahoma, Verdana, Arial;
 }
 
 .company-card ul li{
@@ -505,22 +527,11 @@ ul{
     width: 320px;
 }
 
-.company-card ul li:first-child{
-    height: 45px;
-}
-
-.company-card ul li:nth-child(2){
-    height: 28px;
-}
-
-.company-card ul li:nth-child(3){
-    height: 35px;
-}
-
 .company-logo{
     float: left;
+    margin: 5px 0 0 5px;
     height: 45px;
-    clear: left;
+
 }
 
 .company-address{
@@ -532,7 +543,6 @@ ul{
 .company-address a{
     color: black;
 }
-
 .card-contact-web{
     float: left;
     display: block;
@@ -562,10 +572,6 @@ ul{
     text-decoration: none;
 }
 
-.company-card ul{
-    height: 132px;
-}
-
 .commercial-activity{
     margin-left: auto;
     margin-top: 3px;
@@ -574,15 +580,14 @@ ul{
 }
 
 .add-data{
-    height: 20%;
-    padding: 0 5px 5px 0;
+    margin: 5px;
 }
 
 .add-data-left{
     float: left;
     position: relative;
     bottom: 10px;
-    left: 11px;
+    left: 15px;
     color: #800000;
 }
 
@@ -590,7 +595,8 @@ ul{
     float: right;
 }
 
-/*CONTENT RIGHT*/
+
+
 
 .content-right{
     width: 277.5px;
@@ -598,12 +604,9 @@ ul{
     font-size: 12px;
     padding-left: 15px;
 }
-
 .content-right li{
     cursor: pointer;
     line-height: 20px;
-    position: relative;
-    padding-left: 5px;
 }
 
 .content-right-title{
@@ -613,29 +616,8 @@ ul{
     height: 24px;
     margin: 0 0 1px 8px;
     padding-left: 8px;
-    position: relative;
-}
 
-.content-right-title::before{
-    content: "";
-    position: absolute;
-    left: -8px;
-    width: 7px;
-    height: 100%;
-    background-color: #598b8a;
-    border-radius: 6px 0 0 6px;
-}
 
-.content-right-title::after{
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    border-width: 12px 10px 12px 0;
-    border-style: solid;
-    border-color: transparent #fff;
-    display: block;
-    width: 0;
 }
 
 .strong{
@@ -644,119 +626,5 @@ ul{
     color: #a00;
 }
 
-/*TABLE*/
-
-table{
-    margin: 10px 0 20px 0;
-    width:100%;
-}
-
-.table-headings{
-    font-weight: bolder;
-    font-size: 14px;
-    text-align: left;
-    padding: 6px 8px;
-    background: linear-gradient(to bottom , #fbfbfb 0%, #e0e0e0 100%);
-    cursor: pointer;
-}
-
-table, td, tr{
-    border-collapse: collapse;
-    border: 1px solid #cccccc;
-    font-size: 12px;
-}
-
-tr:hover{
-    background-color: #f5f5f5;
-}
-
-.table-sub-headings{
-    width: 35%;
-    font-weight: bold;
-    border-collapse: collapse;
-}
-
-.sub-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.pvn{
-    width: 274.8px;
-}
-
-.stat, .reg, .izsl{
-    width: 91.59px;
-}
-
-.check{
-    text-align: center;
-}
-
-.no-spaces{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    border-collapse: collapse;
-}
-
-.space-around{
-    padding: 4px 8px;
-}
-
-.sub-table-heading{
-    background: linear-gradient(to bottom , #fbfbfb 0%, #e0e0e0 100%);
-}
-
-td{
-    padding: 4px 8px;
-}
 
 
-.table-a{
-    color: #174B33;
-    text-decoration: underline;
-}
-
-.table-a:hover{
-    text-decoration: none;
-}
-
-.table-text-right{
-    float: right;
-    clear: left;
-}
-
-.table-green-text{
-    font-weight: bold;
-    font-size: 14px;
-    color: #174b33;
-}
-
-.info-icon{
-    display: inline-block;
-    vertical-align: center;
-}
-
-.button-debt{
-    background-color: #527a7a;
-    border: none;
-    border-radius: 6px;
-    float: right;
-    vertical-align: center;
-    width: 119px;
-    height: 33.6px;
-}
-
-.button-debt a{
-    text-decoration: none;
-    font-size: 14px;
-    padding: 6px 12px 6px 12px;
-    color: white;
-    text-align: center;
-    line-height: 22px;
-}
-
-.button-debt:hover{
-    background-color: #174b33;
-}
